@@ -1,14 +1,13 @@
 /* ══════════════════════════════════════════
    MOBILE — OMMA ESTUDIO  (max-width: 768px)
-   Versión mejorada — Junio 2026
+   v2 — fixes hero + nav
    ══════════════════════════════════════════ */
 
 @media (max-width: 768px) {
 
-  /* ─── RESET BASE ─────────────────────── */
   *, *::before, *::after { box-sizing: border-box; }
   body {
-    padding-bottom: 72px;
+    padding-bottom: 0;
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
   }
@@ -19,20 +18,38 @@
   .nav-cta,
   .nav-div { display: none !important; }
 
-  #nav { padding: .65rem 1.2rem !important; }
+  #nav {
+    padding: .65rem 1.2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;   /* logo centrado */
+  }
 
-  /* ─── BOTTOM BAR ─────────────────────── */
+  /* Logo centrado */
+  #nav .nav-logo,
+  #nav a.nav-logo,
+  #nav > a:first-child {
+    position: static !important;
+    margin: 0 auto !important;
+  }
+
+  /* ─── BOTTOM BAR — fijar abajo ───────── */
   #bottom-bar {
     display: flex !important;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    height: 64px;
-    background: rgba(20, 20, 20, 0.96);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-top: 1px solid rgba(255, 86, 64, 0.18);
-    z-index: 999;
-    padding-bottom: env(safe-area-inset-bottom);
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 64px !important;
+    background: rgba(20, 20, 20, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-top: 1px solid rgba(255, 86, 64, 0.18) !important;
+    border-bottom: none !important;
+    z-index: 999 !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+    flex-direction: row !important;
   }
 
   #bottom-bar a {
@@ -43,19 +60,18 @@
     justify-content: center;
     gap: 4px;
     text-decoration: none;
-    color: rgba(248, 244, 220, 0.35);
+    color: rgba(248, 244, 220, 0.38);
     font-family: 'Disket Mono', monospace;
-    font-size: .58rem;            /* CORREGIDO: era .38rem, ilegible */
+    font-size: .58rem;
     letter-spacing: .08em;
     text-transform: uppercase;
     transition: color .18s ease;
     -webkit-tap-highlight-color: transparent;
-    min-height: 44px;             /* tap target mínimo Apple HIG */
+    min-height: 44px;
   }
 
   #bottom-bar a.active { color: #ff5640; }
-
-  #bottom-bar a:hover { color: rgba(248, 244, 220, 0.65); }
+  #bottom-bar a:hover  { color: rgba(248, 244, 220, 0.65); }
 
   #bottom-bar a svg {
     width: 22px; height: 22px;
@@ -66,14 +82,14 @@
     stroke-linejoin: round;
   }
 
-  /* ─── SECCIONES GENERALES ────────────── */
-  .sec { padding: 4rem 1.2rem !important; }
-
   /* ─── HERO ───────────────────────────── */
   .hero {
-    min-height: 100svh;
-    padding: 0 1.2rem 5rem !important;
-    justify-content: flex-end;
+    min-height: 100svh !important;
+    padding: 0 1.2rem 2.5rem !important;   /* menos padding abajo = foto visible */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important; /* contenido hacia arriba */
+    padding-top: 30vh !important;           /* empuja texto a 1/3 superior */
   }
 
   .hero-content {
@@ -81,41 +97,39 @@
     padding: 0 !important;
   }
 
-  .hero-eyebrow { margin-bottom: .8rem; }
+  .hero-eyebrow {
+    margin-bottom: .6rem !important;
+    margin-top: 0 !important;
+  }
 
   .hero-title {
-    font-size: clamp(2.2rem, 10vw, 3.2rem) !important;
-    line-height: 1.06 !important;
+    font-size: clamp(2.4rem, 11vw, 3.4rem) !important;
+    line-height: 1.04 !important;
+    margin-bottom: .4rem !important;
   }
 
-  .hero-italic { font-size: clamp(2rem, 9vw, 3rem) !important; }
+  .hero-italic {
+    font-size: clamp(2.1rem, 9.5vw, 3rem) !important;
+    margin-bottom: 1rem !important;
+  }
 
   .hero-sub {
-    font-size: .9rem !important;
-    line-height: 1.65 !important;
+    font-size: .88rem !important;
+    line-height: 1.6 !important;
     max-width: 100% !important;
-    margin-bottom: 2rem !important;
+    margin-bottom: 0 !important;
   }
 
-  .hero-actions {
-    flex-direction: column !important;
-    gap: .75rem !important;
-    align-items: stretch !important;   /* botones al 100% */
-  }
+  /* Ocultar botones y stats en hero */
+  .hero-actions  { display: none !important; }
+  .hero-stats    { display: none !important; }
+  .hero-bird     { display: none !important; }
 
-  .btn-p,
-  .btn-g {
-    width: 100% !important;
-    text-align: center;
-    justify-content: center;
-    padding-top: .85rem !important;
-    padding-bottom: .85rem !important;
-  }
+  /* Ocultar botón de idioma */
+  #translate-btn { display: none !important; }
 
-  .hero-stats { display: none !important; }
-  .hero-bird  { display: none !important; }
-
-  /* ─── MARQUEE / BAND ─────────────────── */
+  /* ─── SECCIONES GENERALES ────────────── */
+  .sec { padding: 4rem 1.2rem !important; }
   .band { padding: .7rem 0 !important; }
 
   /* ─── OMMA ES / INTRO ────────────────── */
@@ -188,69 +202,8 @@
 
   .sg-item { aspect-ratio: 4/3 !important; }
 
-  /* ─── SERVICIOS ──────────────────────── */
-  .servicios-sec { padding: 4rem 0 !important; }
-
-  .servicios-intro {
-    padding: 0 1.2rem 2rem !important;
-    margin-bottom: 2rem !important;
-  }
-
-  .servicios-grid {
-    grid-template-columns: 1fr !important;   /* CORREGIDO: era 1fr 1fr, muy apretado */
-    gap: 1px !important;
-  }
-
-  .srv-body { padding: 1.4rem 1.2rem !important; }
-  .srv-num  { font-size: 2.2rem !important; }
-  .srv-title { font-size: .65rem !important; }
-  .srv-visual { aspect-ratio: 16/9 !important; }
-
-  /* Panel de servicio — bottom sheet */
-  .srv-panel {
-    position: fixed !important;
-    width: 100vw !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: auto !important;
-    bottom: 0 !important;
-    max-height: 88vh !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 16px 16px 0 0 !important;
-    transform: translateY(100%) !important;
-    transition: transform .32s cubic-bezier(.4,0,.2,1) !important;
-    z-index: 1000;
-  }
-
-  .srv-panel.open { transform: translateY(0) !important; }
-
-  /* Overlay detrás del panel */
-  .srv-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(20,20,20,.6);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    z-index: 999;
-  }
-
-  .srv-overlay.open { display: block; }
-
-  /* Handle drag indicator en top del panel */
-  .srv-panel::before {
-    content: '';
-    display: block;
-    width: 36px;
-    height: 4px;
-    background: rgba(248, 244, 220, 0.25);
-    border-radius: 2px;
-    margin: .8rem auto 0;
-  }
-
-  .srv-panel-header { padding: 1rem 1.2rem 1rem !important; }
-  .srv-panel-body   { padding: 0 1.2rem 2rem !important; }
+  /* ─── SERVICIOS — ocultar en móvil ──── */
+  .servicios-sec { display: none !important; }
 
   /* ─── POST PRODUCCIÓN ────────────────── */
   .post-sec { padding: 4rem 1.2rem !important; }
@@ -347,7 +300,6 @@
     gap: 0 !important;
   }
 
-  /* font-size: 16px evita zoom automático en iOS */
   .form-group input,
   .form-group select,
   .form-group textarea {
@@ -371,14 +323,37 @@
     justify-content: center !important;
   }
 
-  /* ─── BOTÓN TRANSLATE ────────────────── */
-  #translate-btn {
-    bottom: 5rem !important;
-    right: 1rem !important;
-  }
-
   /* ─── LIGHTBOX ───────────────────────── */
   .lb-next,
   .lb-prev { padding: .6rem .9rem !important; }
 
-} /* fin @media (max-width: 768px) */
+  /* ─── PANEL SERVICIOS ────────────────── */
+  .srv-panel {
+    position: fixed !important;
+    width: 100vw !important;
+    left: 0 !important; right: 0 !important;
+    top: auto !important; bottom: 0 !important;
+    max-height: 88vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px 16px 0 0 !important;
+    transform: translateY(100%) !important;
+    transition: transform .32s cubic-bezier(.4,0,.2,1) !important;
+    z-index: 1000;
+  }
+
+  .srv-panel.open { transform: translateY(0) !important; }
+
+  .srv-panel::before {
+    content: '';
+    display: block;
+    width: 36px; height: 4px;
+    background: rgba(248, 244, 220, 0.25);
+    border-radius: 2px;
+    margin: .8rem auto 0;
+  }
+
+  .srv-panel-header { padding: 1rem 1.2rem !important; }
+  .srv-panel-body   { padding: 0 1.2rem 2rem !important; }
+
+} /* fin @media */
