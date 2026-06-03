@@ -1,9 +1,9 @@
 /* ══════════════════════════════════════════
-   MOBILE — OMMA ESTUDIO  (max-width: 768px)
-   v2 — fixes hero + nav
+   MOBILE — OMMA ESTUDIO
+   v4 — hero compacto + servicios restaurado
    ══════════════════════════════════════════ */
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (pointer: coarse) {
 
   *, *::before, *::after { box-sizing: border-box; }
   body {
@@ -13,7 +13,7 @@
   }
   img { max-width: 100%; height: auto; }
 
-  /* ─── NAV DESKTOP → OCULTAR ──────────── */
+  /* ─── NAV ────────────────────────────── */
   .nav-links,
   .nav-cta,
   .nav-div { display: none !important; }
@@ -22,10 +22,9 @@
     padding: .65rem 1.2rem !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important;   /* logo centrado */
+    justify-content: center !important;
   }
 
-  /* Logo centrado */
   #nav .nav-logo,
   #nav a.nav-logo,
   #nav > a:first-child {
@@ -33,7 +32,7 @@
     margin: 0 auto !important;
   }
 
-  /* ─── BOTTOM BAR — fijar abajo ───────── */
+  /* ─── BOTTOM BAR ─────────────────────── */
   #bottom-bar {
     display: flex !important;
     position: fixed !important;
@@ -85,54 +84,54 @@
   /* ─── HERO ───────────────────────────── */
   .hero {
     min-height: 100svh !important;
-    padding: 0 1.2rem 2.5rem !important;   /* menos padding abajo = foto visible */
+    padding: 0 1.2rem 3rem !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important; /* contenido hacia arriba */
-    padding-top: 30vh !important;           /* empuja texto a 1/3 superior */
+    justify-content: flex-end !important;   /* texto pegado abajo */
   }
 
   .hero-content {
     max-width: 100% !important;
     padding: 0 !important;
+    padding-bottom: 72px !important;        /* espacio sobre bottom bar */
   }
 
   .hero-eyebrow {
-    margin-bottom: .6rem !important;
-    margin-top: 0 !important;
+    margin-bottom: .5rem !important;
+    font-size: .6rem !important;
   }
 
   .hero-title {
-    font-size: clamp(2.4rem, 11vw, 3.4rem) !important;
-    line-height: 1.04 !important;
-    margin-bottom: .4rem !important;
+    font-size: clamp(1.6rem, 7.5vw, 2.2rem) !important;  /* REDUCIDO */
+    line-height: 1.08 !important;
+    margin-bottom: .3rem !important;
   }
 
   .hero-italic {
-    font-size: clamp(2.1rem, 9.5vw, 3rem) !important;
-    margin-bottom: 1rem !important;
+    font-size: clamp(1.5rem, 7vw, 2rem) !important;       /* REDUCIDO */
+    line-height: 1.1 !important;
+    margin-bottom: .8rem !important;
   }
 
   .hero-sub {
-    font-size: .88rem !important;
-    line-height: 1.6 !important;
+    font-size: .82rem !important;
+    line-height: 1.55 !important;
     max-width: 100% !important;
     margin-bottom: 0 !important;
+    opacity: .75;
   }
 
-  /* Ocultar botones y stats en hero */
+  /* Ocultar botones, stats y traducción */
   .hero-actions  { display: none !important; }
   .hero-stats    { display: none !important; }
   .hero-bird     { display: none !important; }
-
-  /* Ocultar botón de idioma */
   #translate-btn { display: none !important; }
 
   /* ─── SECCIONES GENERALES ────────────── */
-  .sec { padding: 4rem 1.2rem !important; }
+  .sec  { padding: 4rem 1.2rem !important; }
   .band { padding: .7rem 0 !important; }
 
-  /* ─── OMMA ES / INTRO ────────────────── */
+  /* ─── INTRO ──────────────────────────── */
   .intro-g {
     display: flex !important;
     flex-direction: column !important;
@@ -175,16 +174,16 @@
     margin-top: 2px !important;
   }
 
-  .strip-item { aspect-ratio: 16/9 !important; }
+  .strip-item   { aspect-ratio: 16/9 !important; }
 
   .foros-grid {
     grid-template-columns: 1fr !important;
     gap: 2px !important;
   }
 
-  .fc { padding: 1.8rem 1.2rem !important; }
-  .fc-letter { font-size: 3rem !important; }
-  .foros-desc { font-size: .88rem !important; }
+  .fc           { padding: 1.8rem 1.2rem !important; }
+  .fc-letter    { font-size: 3rem !important; }
+  .foros-desc   { font-size: .88rem !important; }
 
   /* ─── ÁREAS DE SOPORTE ───────────────── */
   .sup-bar {
@@ -202,8 +201,51 @@
 
   .sg-item { aspect-ratio: 4/3 !important; }
 
-  /* ─── SERVICIOS — ocultar en móvil ──── */
-  .servicios-sec { display: none !important; }
+  /* ─── SERVICIOS — restaurado ─────────── */
+  .servicios-sec { padding: 4rem 0 !important; }
+
+  .servicios-intro {
+    padding: 0 1.2rem 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .servicios-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1px !important;
+  }
+
+  .srv-body  { padding: 1.4rem 1.2rem !important; }
+  .srv-num   { font-size: 2.2rem !important; }
+  .srv-title { font-size: .65rem !important; }
+  .srv-visual { aspect-ratio: 16/9 !important; }
+
+  .srv-panel {
+    position: fixed !important;
+    width: 100vw !important;
+    left: 0 !important; right: 0 !important;
+    top: auto !important; bottom: 0 !important;
+    max-height: 88vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px 16px 0 0 !important;
+    transform: translateY(100%) !important;
+    transition: transform .32s cubic-bezier(.4,0,.2,1) !important;
+    z-index: 1000;
+  }
+
+  .srv-panel.open { transform: translateY(0) !important; }
+
+  .srv-panel::before {
+    content: '';
+    display: block;
+    width: 36px; height: 4px;
+    background: rgba(248, 244, 220, 0.25);
+    border-radius: 2px;
+    margin: .8rem auto 0;
+  }
+
+  .srv-panel-header { padding: 1rem 1.2rem !important; }
+  .srv-panel-body   { padding: 0 1.2rem 2rem !important; }
 
   /* ─── POST PRODUCCIÓN ────────────────── */
   .post-sec { padding: 4rem 1.2rem !important; }
@@ -326,34 +368,5 @@
   /* ─── LIGHTBOX ───────────────────────── */
   .lb-next,
   .lb-prev { padding: .6rem .9rem !important; }
-
-  /* ─── PANEL SERVICIOS ────────────────── */
-  .srv-panel {
-    position: fixed !important;
-    width: 100vw !important;
-    left: 0 !important; right: 0 !important;
-    top: auto !important; bottom: 0 !important;
-    max-height: 88vh !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 16px 16px 0 0 !important;
-    transform: translateY(100%) !important;
-    transition: transform .32s cubic-bezier(.4,0,.2,1) !important;
-    z-index: 1000;
-  }
-
-  .srv-panel.open { transform: translateY(0) !important; }
-
-  .srv-panel::before {
-    content: '';
-    display: block;
-    width: 36px; height: 4px;
-    background: rgba(248, 244, 220, 0.25);
-    border-radius: 2px;
-    margin: .8rem auto 0;
-  }
-
-  .srv-panel-header { padding: 1rem 1.2rem !important; }
-  .srv-panel-body   { padding: 0 1.2rem 2rem !important; }
 
 } /* fin @media */
