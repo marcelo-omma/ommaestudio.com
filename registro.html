@@ -430,6 +430,12 @@ html, body {
     <input class="field-input" type="text" id="instagram" placeholder="@tuusuario">
   </div>
 
+  <!-- Empresa -->
+  <div class="field-group">
+    <label class="field-label" for="empresa">Empresa</label>
+    <input class="field-input" type="text" id="empresa" placeholder="Nombre de tu empresa">
+  </div>
+
   <div class="form-divider"></div>
 
   <!-- Giro -->
@@ -560,6 +566,7 @@ async function handleSubmit() {
   const email     = document.getElementById('email').value.trim();
   const telefono  = document.getElementById('telefono').value.trim();
   const instagram = document.getElementById('instagram').value.trim();
+  const empresa   = document.getElementById('empresa').value.trim();
   const giro      = (() => {
     const chips = getSelectedChips();
     const otro = document.getElementById('otroGiro').value.trim();
@@ -592,7 +599,7 @@ async function handleSubmit() {
   status.className = 'status-msg';
 
   const payload = {
-    nombre, email, telefono, instagram, giro, frecuencia, servicios,
+    nombre, email, telefono, instagram, empresa, giro, frecuencia, servicios,
     timestamp: new Date().toLocaleString('es-MX', {timeZone:'America/Monterrey'})
   };
 
